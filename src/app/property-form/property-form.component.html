@@ -1,0 +1,22 @@
+<div class="container">
+  <h1>Property Form</h1>
+  
+  <form>
+    <div>
+      <md-input-container>
+        <input md-input placeholder="Postcode" type="text" id="postcode" required [(ngModel)]="model.postcode" name="postcode" #spy>
+      </md-input-container>
+      <br> TODO: remove this: {{spy.classname}}
+    </div>
+
+    <div>
+      <md-input-container>
+        <input md-input placeholder="Current Owner" type="text" id="owner" [(ngModel)]="model.owner" name="owner">
+      </md-input-container>
+    </div>
+
+    <button md-raised-button type="submit">Submit</button>
+
+  </form>
+
+</div>

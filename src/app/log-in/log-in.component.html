@@ -1,0 +1,5 @@
+<div>
+    <p> {{ (af.auth | async)?.uid }} </p>
+    <button md-raised-button (click)="facebookLogin()">Login with Facebook</button>
+    <button md-raised-button (click)="logout()">Logout</button>
+</div>
