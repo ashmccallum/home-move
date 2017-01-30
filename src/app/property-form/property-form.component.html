@@ -1,22 +1,52 @@
 <div class="container">
-  <h1>Property Form</h1>
-  
-  <form>
-    <div>
-      <md-input-container>
-        <input md-input placeholder="Postcode" type="text" id="postcode" required [(ngModel)]="model.postcode" name="postcode" #spy>
-      </md-input-container>
-      <br> TODO: remove this: {{spy.classname}}
-    </div>
+  <div [hidden]="submitted">
+    <h1>Property Form</h1>
+    
+    <form (ngSubmit)="onSubmit()" #propertyForm="ngForm">
+      <div class="form-group">
+        <md-input-container>
+          <input md-input placeholder="Postcode" type="text" id="postcode" required [(ngModel)]="model.postcode" name="postcode">
+        </md-input-container>
+      </div>
 
-    <div>
-      <md-input-container>
-        <input md-input placeholder="Current Owner" type="text" id="owner" [(ngModel)]="model.owner" name="owner">
-      </md-input-container>
-    </div>
+      <div class="form-group">
+        <md-input-container>
+          <input md-input placeholder="Address" type="text" id="address" [(ngModel)]="model.address" name="address">
+        </md-input-container>
+      </div>
+      
+      <div class="form-group">
+        <md-input-container>
+          <input md-input placeholder="Current Owner" type="text" id="owner" [(ngModel)]="model.owner" name="owner">
+        </md-input-container>
+      </div>
 
-    <button md-raised-button type="submit">Submit</button>
+      <div class="form-group">
+        <md-input-container>
+          <input md-input placeholder="Buyer" type="text" id="buyer" [(ngModel)]="model.buyer" name="buyer">
+        </md-input-container>
+      </div>
 
-  </form>
+      <div class="form-group">
+        <md-input-container>
+          <input md-input placeholder="Offer price" type="number" id="offer-price" [(ngModel)]="model.offer_price" name="offer-price">
+        </md-input-container>
+      </div>
+      
+      <div class="form-group">
+        <md-input-container>
+          <input md-input placeholder="Offer made on" type="number" id="offer-date" [(ngModel)]="model.offer_date" name="offer-date">
+        </md-input-container>
+      </div>
+
+      <button md-raised-button type="submit" [disabled]="!propertyForm.form.valid">Submit</button>
+      <button md-raised-button type="button" (click)="newProperty(); propertyForm.reset()">New Property</button>
+
+    </form>
+
+  </div>
+
+  <div [hidden]="!submitted">
+
 
 </div>

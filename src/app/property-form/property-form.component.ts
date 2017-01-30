@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Property } from '../property/property';
+import { LogInComponent } from '../log-in/log-in.component';
 
 @Component({
   selector: 'app-property-form',
@@ -8,13 +9,27 @@ import { Property } from '../property/property';
   styleUrls: ['./property-form.component.css']
 })
 
-export class PropertyFormComponent {
+export class PropertyFormComponent implements OnInit {
 
-  model = new Property(123, 'SG5 4JT', '47, Brook St, Stotfold, Hitchin, Hertfordshire', 'Emma', 'Ash', 300000, 1483800327143);
-
+  model = this.newProperty();
   submitted = false;
 
-  onSubmit() { this.submitted = true; }
+  ngOnInit() {
+    
+  }
+
+  onSubmit(model) { 
+    this.submitted = true;
+    
+  }
+
+  newProperty() {
+    return new Property(null, null, null, null, null, null, null);
+  }
+
+  getNextPropertyId() {
+    
+  }
 
   // TODO - Remove this when done
   get diagnostic() { return JSON.stringify(this.model); }

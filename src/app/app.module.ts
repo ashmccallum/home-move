@@ -5,13 +5,15 @@ import { HttpModule } from '@angular/http';
 import { RouterModule,Routes } from '@angular/router';
 import { MaterialModule } from '@angular/material';
 
-import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
+import { AngularFireModule, AuthProviders, AuthMethods, FirebaseAuth } from 'angularfire2';
 
 import { AppComponent } from './app.component';
 import { LogInComponent } from './log-in/log-in.component';
 import { PropertyComponent } from './property/property.component';
 import { PeopleComponent } from './people/people.component';
 import { PropertyFormComponent } from './property-form/property-form.component';
+
+import { UserService } from './services/user.service'
 
 export const firebaseConfig = {
   apiKey: "AIzaSyBzQ2EqcAa8qX0hHc1Zn1fsB8fwHCZaxOY",
@@ -50,7 +52,9 @@ const appRoutes: Routes = [
     MaterialModule.forRoot(),
     AngularFireModule.initializeApp(firebaseConfig)
   ],
-  providers: [],
+  providers: [
+    UserService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,30 +1,40 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFire, AuthProviders, AuthMethods  } from 'angularfire2';
+import { Router } from '@angular/router';
+import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-log-in',
   templateUrl: './log-in.component.html',
   styleUrls: ['./log-in.component.css']
 })
+
 export class LogInComponent implements OnInit {
 
-  constructor(public af: AngularFire) { }
+  constructor(private auth: UserService, private router: Router) {}
 
   ngOnInit() {
     
   }
 
-  facebookLogin() {
-    this.af.auth.login({
-      provider: AuthProviders.Facebook,
-      method: AuthMethods.Popup
-    });
-
-    
+  authenticated() {
+    return this.auth.authState;
+  }
+  
+  signInWithFacebook(): void {
+    this.auth.signInWithFacebook()
+      .then(() => {
+        this.auth.saveUserDetails();
+        this.postSignIn()
+      });
   }
 
-  logout() {
-    this.af.auth.logout();
+  signOut() {
+    this.auth.signOut();
+  }
+
+  private postSignIn(): void {
+    this.router.navigate(['/property'])
   }
 
 }

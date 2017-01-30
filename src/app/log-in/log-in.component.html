@@ -1,5 +1,12 @@
 <div>
-    <p> {{ (af.auth | async)?.uid }} </p>
-    <button md-raised-button (click)="facebookLogin()">Login with Facebook</button>
-    <button md-raised-button (click)="logout()">Logout</button>
+    <div *ngIf="!(authenticated())">
+        <p>Please log in<p>
+        <p>{{ authenticated() }}<p>
+        <button md-raised-button (click)="signInWithFacebook()">Login with Facebook</button>
+    </div>
+    <div *ngIf="(authenticated())">
+        <p>Hi there {{ authenticated().auth.displayName }}!</p>
+        <button md-button (click)="signOut()">Logout</button>
+        <button routerLink="/property" md-raised-button>Continue</button>
+    </div>
 </div>

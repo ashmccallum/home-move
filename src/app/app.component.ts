@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AngularFire, FirebaseListObservable } from 'angularfire2';
+import { UserService } from './services/user.service'
 
 @Component({
   selector: 'app-root',
@@ -9,8 +9,9 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
 export class AppComponent {
   title = 'Move home the easy way';
-  items: FirebaseListObservable<any[]>;
-  constructor(af: AngularFire) {
-    this.items = af.database.list('/items');
+
+  constructor(public UserService: UserService) { 
+
   }
+
 }
