@@ -1,7 +1,7 @@
 <div class="container">
   <div [hidden]="submitted">
     <h1>Property Form</h1>
-    <p>Form value: {{ propertyForm.value | json }}
+    <p>Form value: {{ propertyForm.value | json }}</p>
     
     <form (ngSubmit)="onSubmit(propertyForm.value)" #propertyForm="ngForm">
       <div class="form-group">

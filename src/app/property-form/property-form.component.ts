@@ -15,13 +15,18 @@ import { PropertyService } from '../property/services/property.service';
 
 export class PropertyFormComponent implements OnInit {
 
-  model: FirebaseObjectObservable<Property>;
+  model: FirebaseObjectObservable<any>;
   //property: Property = new Property(this.model.map);
   submitted = false;
   propertyForm;
 
-  constructor(private propertyService: PropertyService, af: AngularFire) {
-    this.model = af.database.object('/properties/MGQ34xmYDdT8IGLaj3zvBwZjWgW2');
+  constructor(private propertyService: PropertyService, af: AngularFire) {    
+
+    af.database.object('/properties/MGQ34xmYDdT8IGLaj3zvBwZjWgW2').subscribe(snapshot => {
+      this.model = snapshot;
+      console.log(this.model);
+    });
+
   }
 
   ngOnInit() {
