@@ -93,40 +93,4 @@ export class UserService {
     this.auth$.logout();
   }
 
-  // loggedIn = false;
-  // authUser = {};
-  // authState = {};
-
-  // constructor(public af: AngularFire ) {
-  //   this.af.auth.subscribe(auth => {
-  //     if (auth) {
-  //       this.loggedIn = true;
-  //       this.authUser = new User(
-  //         auth.uid, 
-  //         auth.auth.displayName, 
-  //         auth.auth.email, 
-  //         auth.auth.photoURL,
-  //         "buyer",
-  //         auth.provider
-  //       );
-  //       console.log(this.authUser);
-  //     } else if (auth == null) {
-  //       this.loggedIn = false;
-  //       console.log("no user logged in");
-  //     };
-  //   });
-  // }
-
-
-  // facebookLogin() {
-  //   this.af.auth.login({
-  //     provider: AuthProviders.Facebook,
-  //     method: AuthMethods.Popup
-  //   });
-  // }
-
-  // logout() {
-  //   this.af.auth.logout();
-  // }
-
 }

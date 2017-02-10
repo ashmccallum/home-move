@@ -1,8 +1,9 @@
 <div class="container">
   <div [hidden]="submitted">
     <h1>Property Form</h1>
+    <p>Form value: {{ propertyForm.value | json }}
     
-    <form (ngSubmit)="onSubmit()" #propertyForm="ngForm">
+    <form (ngSubmit)="onSubmit(propertyForm.value)" #propertyForm="ngForm">
       <div class="form-group">
         <md-input-container>
           <input md-input placeholder="Postcode" type="text" id="postcode" required [(ngModel)]="model.postcode" name="postcode">
@@ -29,13 +30,13 @@
 
       <div class="form-group">
         <md-input-container>
-          <input md-input placeholder="Offer price" type="number" id="offer-price" [(ngModel)]="model.offer_price" name="offer-price">
+          <input md-input placeholder="Offer price" type="number" id="offer-price" [(ngModel)]="model.offer_price" name="offer_price">
         </md-input-container>
       </div>
       
       <div class="form-group">
         <md-input-container>
-          <input md-input placeholder="Offer made on" type="number" id="offer-date" [(ngModel)]="model.offer_date" name="offer-date">
+          <input md-input placeholder="Offer made on" type="number" id="offer-date" [(ngModel)]="model.offer_date" name="offer_date">
         </md-input-container>
       </div>
 

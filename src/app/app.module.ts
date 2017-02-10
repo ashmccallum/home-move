@@ -13,7 +13,8 @@ import { PropertyComponent } from './property/property.component';
 import { PeopleComponent } from './people/people.component';
 import { PropertyFormComponent } from './property-form/property-form.component';
 
-import { UserService } from './services/user.service'
+import { UserService } from './services/user.service';
+import { PropertyService } from './property/services/property.service';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyBzQ2EqcAa8qX0hHc1Zn1fsB8fwHCZaxOY",
@@ -53,7 +54,8 @@ const appRoutes: Routes = [
     AngularFireModule.initializeApp(firebaseConfig)
   ],
   providers: [
-    UserService
+    UserService,
+    PropertyService
   ],
   bootstrap: [AppComponent]
 })
