@@ -1,42 +1,41 @@
 <div class="container">
   <div [hidden]="submitted">
     <h1>Property Form</h1>
-    <p>Form value: {{ propertyForm.value | json }}</p>
     
-    <form (ngSubmit)="onSubmit(propertyForm.value)" #propertyForm="ngForm">
+    <form *ngIf="property" (ngSubmit)="onSubmit(propertyForm.value)" #propertyForm="ngForm">
       <div class="form-group">
         <md-input-container>
-          <input md-input placeholder="Postcode" type="text" id="postcode" required [(ngModel)]="model.postcode" name="postcode">
+          <input md-input placeholder="Postcode" type="text" id="postcode" required [(ngModel)]="property.postcode" name="postcode">
         </md-input-container>
       </div>
 
       <div class="form-group">
         <md-input-container>
-          <input md-input placeholder="Address" type="text" id="address" [(ngModel)]="model.address" name="address">
+          <input md-input placeholder="Address" type="text" id="address" [(ngModel)]="property.address" name="address">
         </md-input-container>
       </div>
       
       <div class="form-group">
         <md-input-container>
-          <input md-input placeholder="Current Owner" type="text" id="owner" [(ngModel)]="model.owner" name="owner">
+          <input md-input placeholder="Current Owner" type="text" id="owner" [(ngModel)]="property.owner" name="owner">
         </md-input-container>
       </div>
 
       <div class="form-group">
         <md-input-container>
-          <input md-input placeholder="Buyer" type="text" id="buyer" [(ngModel)]="model.buyer" name="buyer">
+          <input md-input placeholder="Buyer" type="text" id="buyer" [(ngModel)]="property.buyer" name="buyer">
         </md-input-container>
       </div>
 
       <div class="form-group">
         <md-input-container>
-          <input md-input placeholder="Offer price" type="number" id="offer-price" [(ngModel)]="model.offer_price" name="offer_price">
+          <input md-input placeholder="Offer price" type="number" id="offer-price" [(ngModel)]="property.offer_price" name="offer_price">
         </md-input-container>
       </div>
       
       <div class="form-group">
         <md-input-container>
-          <input md-input placeholder="Offer made on" type="number" id="offer-date" [(ngModel)]="model.offer_date" name="offer_date">
+          <input md-input placeholder="Offer made on" type="number" id="offer-date" [(ngModel)]="property.offer_date" name="offer_date">
         </md-input-container>
       </div>
 
@@ -44,10 +43,11 @@
       <button md-raised-button type="button" (click)="newProperty(); propertyForm.reset()">New Property</button>
 
     </form>
-
   </div>
 
   <div [hidden]="!submitted">
+    <h1>TODO: Show property here</h1>
+  </div>
 
 
 </div>

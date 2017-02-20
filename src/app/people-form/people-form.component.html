@@ -1,0 +1,34 @@
+<div class="container">
+  <div [hidden]="submitted">
+    <h1>Person Form</h1>
+    
+    <form (ngSubmit)="onSubmit(personForm.value)" #personForm="ngForm">
+      <div class="form-group">
+        <md-select placeholder="User type" [(ngModel)]="person.type" id="type" required  name="type">
+          <md-option *ngFor="let type of types" [value]="type">{{ type }}</md-option>
+        </md-select>
+      </div>
+
+      <div class="form-group">
+        <md-input-container>
+          <input md-input placeholder="Name" type="text" id="name" required [(ngModel)]="person.name" name="name">
+        </md-input-container>
+      </div>
+
+      <div class="form-group">
+        <md-input-container>
+          <input md-input placeholder="Email" type="text" id="email" required [(ngModel)]="person.email" name="email">
+        </md-input-container>
+      </div>
+
+      <button md-raised-button type="submit" [disabled]="!personForm.form.valid">Submit</button>
+
+    </form>
+  </div>
+
+  <div [hidden]="!submitted">
+    <h2>Welcome to the party {{person.name}}</h2>
+  </div>
+
+
+</div>

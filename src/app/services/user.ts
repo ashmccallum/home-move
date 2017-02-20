@@ -18,7 +18,7 @@ export class User implements IUser {
     photoUrl: string;
     type: string;
     authProviderData: Object;
-    
+
     constructor(createdAt: number, id: string, name: string, email: string, photoUrl: string, type: string, authProviderData: Object) {
         this.createdAt = createdAt;
         this.id = id;

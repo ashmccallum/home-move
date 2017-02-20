@@ -15,6 +15,8 @@ import { PropertyFormComponent } from './property-form/property-form.component';
 
 import { UserService } from './services/user.service';
 import { PropertyService } from './property/services/property.service';
+import { PeopleService } from './people/services/people.service';
+import { PeopleFormComponent } from './people-form/people-form.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyBzQ2EqcAa8qX0hHc1Zn1fsB8fwHCZaxOY",
@@ -34,6 +36,7 @@ const appRoutes: Routes = [
   { path: 'property', component: PropertyComponent },
   { path: 'property/add', component: PropertyFormComponent },
   { path: 'people', component: PeopleComponent },
+  { path: 'people/add', component: PeopleFormComponent },  
   { path: '**', redirectTo: '/' }
 ]
 
@@ -43,7 +46,8 @@ const appRoutes: Routes = [
     LogInComponent,
     PropertyComponent,
     PeopleComponent,
-    PropertyFormComponent
+    PropertyFormComponent,
+    PeopleFormComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +59,8 @@ const appRoutes: Routes = [
   ],
   providers: [
     UserService,
-    PropertyService
+    PropertyService,
+    PeopleService
   ],
   bootstrap: [AppComponent]
 })

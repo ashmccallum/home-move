@@ -16,16 +16,17 @@ import { PropertyService } from '../property/services/property.service';
 export class PropertyFormComponent implements OnInit {
 
   model: FirebaseObjectObservable<any>;
-  //property: Property = new Property(this.model.map);
+  property: Property;
   submitted = false;
   propertyForm;
 
   constructor(private propertyService: PropertyService, af: AngularFire) {    
 
-    af.database.object('/properties/MGQ34xmYDdT8IGLaj3zvBwZjWgW2').subscribe(snapshot => {
-      this.model = snapshot;
-      console.log(this.model);
-    });
+  // TODO: Move this to service
+    this.model = af.database.object('/properties/MGQ34xmYDdT8IGLaj3zvBwZjWgW2');
+    this.model.subscribe(snapshot => {
+        this.property = snapshot;
+      });
 
   }
 
@@ -33,16 +34,12 @@ export class PropertyFormComponent implements OnInit {
 
   }
 
-  onSubmit(model) { 
-    //this.submitted = true;
-    this.propertyService.editProperty(model);
+  onSubmit(property) { 
+    this.submitted = true;
+    this.propertyService.editProperty(property);
   }
 
   newProperty() {
     return new Property(null, null, null, null, null, null, null);
   }
-
-  // TODO - Remove this when done
-  get diagnostic() { return JSON.stringify(this.model); }
-
 }

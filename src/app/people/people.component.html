@@ -1,3 +1,22 @@
-<p>
-  people works!
-</p>
+<div class="container">
+  <div class="buyer">
+    <img src="../../assets/profile.jpg" height="50" width="50">
+    <h2>You</h2>
+    <h3>buyer</h3>
+  </div>
+
+  <div class="providers">
+    <h1>Service Providers</h1>
+    <p>These helpful souls will get you in your new home</p>
+    <button md-raised-button routerLink="/people/add">ADD</button>
+    <ul *ngIf="peopleList">
+      <li class="supplier" *ngFor="let person of peopleList | async">
+        <img src={{person.photo}} height="50" width="50">
+        <h2>{{person.name}}</h2>
+        <h3>{{person.type}}</h3>
+      </li>
+    </ul>
+
+  </div>
+    
+</div>
