@@ -1,0 +1,18 @@
+.task-container {
+    max-width: 80%;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.task-card {
+    max-width: 35%;
+    min-width: 250px;
+    float: left;
+    margin: 5px;
+}
+
+.task-checkbox {
+    float: left;
+    width: 50px;
+}
+

@@ -17,6 +17,7 @@ import { UserService } from './services/user.service';
 import { PropertyService } from './property/services/property.service';
 import { PeopleService } from './people/services/people.service';
 import { PeopleFormComponent } from './people-form/people-form.component';
+import { TasksComponent } from './tasks/tasks.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyBzQ2EqcAa8qX0hHc1Zn1fsB8fwHCZaxOY",
@@ -32,6 +33,7 @@ const myFirebaseAuthConfig = {
 };
 
 const appRoutes: Routes = [
+  { path: '', component: TasksComponent },
   { path: 'login', component: LogInComponent },
   { path: 'property', component: PropertyComponent },
   { path: 'property/add', component: PropertyFormComponent },
@@ -47,7 +49,8 @@ const appRoutes: Routes = [
     PropertyComponent,
     PeopleComponent,
     PropertyFormComponent,
-    PeopleFormComponent
+    PeopleFormComponent,
+    TasksComponent
   ],
   imports: [
     BrowserModule,

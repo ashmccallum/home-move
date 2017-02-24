@@ -26,6 +26,9 @@ export class PeopleService {
   }
 
   get suppliers() {
+    // *******************************
+    // TODO: DOESNT WORK, CAN ONLY GET FB DATA FROM COMPONENT, NOT SERVICE...
+    // *******************************
     // Get supplier ID's from userID or auth users
     let suppliers2 = this.supplierList;
     // call this.people with each ID

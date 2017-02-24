@@ -16,10 +16,7 @@ export class PeopleComponent implements OnInit {
   private peopleList: FirebaseListObservable<any[]>;
 
   constructor(private ps: PeopleService,private af: AngularFire, private userService: UserService) { 
-    //this.peopleList = this.suppliers;
     this.peopleList = af.database.list('/users/' + userService.id + '/suppliers');
-    this.peopleList.subscribe;
-    console.log(userService.id);
   }
 
   ngOnInit() {
