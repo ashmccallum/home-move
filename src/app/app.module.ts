@@ -7,17 +7,19 @@ import { MaterialModule } from '@angular/material';
 
 import { AngularFireModule, AuthProviders, AuthMethods, FirebaseAuth } from 'angularfire2';
 
+import { UserService } from './services/user.service';
+import { PropertyService } from './property/services/property.service';
+import { PeopleService } from './people/services/people.service';
+import { TaskService } from './tasks/services/task.service';
+
 import { AppComponent } from './app.component';
 import { LogInComponent } from './log-in/log-in.component';
 import { PropertyComponent } from './property/property.component';
 import { PeopleComponent } from './people/people.component';
 import { PropertyFormComponent } from './property-form/property-form.component';
-
-import { UserService } from './services/user.service';
-import { PropertyService } from './property/services/property.service';
-import { PeopleService } from './people/services/people.service';
 import { PeopleFormComponent } from './people-form/people-form.component';
 import { TasksComponent } from './tasks/tasks.component';
+import { TaskFormComponent } from './task-form/task-form.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyBzQ2EqcAa8qX0hHc1Zn1fsB8fwHCZaxOY",
@@ -35,6 +37,7 @@ const myFirebaseAuthConfig = {
 const appRoutes: Routes = [
   { path: '', component: TasksComponent },
   { path: 'login', component: LogInComponent },
+  { path: 'tasks/add', component: TaskFormComponent },
   { path: 'property', component: PropertyComponent },
   { path: 'property/add', component: PropertyFormComponent },
   { path: 'people', component: PeopleComponent },
@@ -50,7 +53,8 @@ const appRoutes: Routes = [
     PeopleComponent,
     PropertyFormComponent,
     PeopleFormComponent,
-    TasksComponent
+    TasksComponent,
+    TaskFormComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +67,8 @@ const appRoutes: Routes = [
   providers: [
     UserService,
     PropertyService,
-    PeopleService
+    PeopleService,
+    TaskService
   ],
   bootstrap: [AppComponent]
 })

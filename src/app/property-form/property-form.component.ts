@@ -23,6 +23,7 @@ export class PropertyFormComponent implements OnInit {
   constructor(private propertyService: PropertyService, af: AngularFire) {    
 
   // TODO: Move this to service
+  // TODO: Update hard coded userId to dynamic
     this.model = af.database.object('/properties/MGQ34xmYDdT8IGLaj3zvBwZjWgW2');
     this.model.subscribe(snapshot => {
         this.property = snapshot;

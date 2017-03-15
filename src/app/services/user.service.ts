@@ -7,20 +7,19 @@ export class UserService {
 
   public authState: FirebaseAuthState = null;
   private userFirebase: FirebaseObjectObservable<any>;
+  public id: string = null;
 
   constructor(public auth$: FirebaseAuth, public af: AngularFire) {
 
     auth$.subscribe((state: FirebaseAuthState) => {
       this.authState = state;
     });
+
+    this.id = this.authenticated ? this.authState.uid : '';
   }
 
   get authenticated(): boolean {
     return this.authState !== null;
-  }
-
-  get id(): string {
-    return this.authenticated ? this.authState.uid : '';
   }
 
   signIn(provider: number, method: any): firebase.Promise<FirebaseAuthState> {
