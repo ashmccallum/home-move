@@ -1,12 +1,24 @@
-<h1>
-  {{title}}
-</h1>
-<div class="button-row">
-  <button md-raised-button routerLink="/" routerLinkActive="active">Home</button>
-  <button md-raised-button routerLink="/login" routerLinkActive="active">Log In</button>
-  <button md-raised-button routerLink="/property" routerLinkActive="active">Property</button>
-  <button md-raised-button routerLink="/property/add" routerLinkActive="active">Property Form</button>
-  <button md-raised-button routerLink="/people" routerLinkActive="active">People</button>
-</div>
+<nav>
+  <h1>
+    {{title}}
+  </h1>
+</nav>
+<md-sidenav-container>
+  <md-sidenav mode="side" opened="true">
+    <div class="button-row">
+        <button class="nav-button" md-button routerLink="/" routerLinkActive="active">Home</button>
+        <button class="nav-button" md-button routerLink="/login" routerLinkActive="active">Log In</button>
+        <button class="nav-button" md-button routerLink="/property" routerLinkActive="active">Property</button>
+        <button class="nav-button" md-button routerLink="/property/add" routerLinkActive="active">Property Form</button>
+        <button class="nav-button" md-button routerLink="/people" routerLinkActive="active">People</button>
+    </div>
+  </md-sidenav>
 
-<router-outlet></router-outlet>
+  <section>
+    <router-outlet></router-outlet>
+  </section>
+</md-sidenav-container>
+
+<h2 class="footer-title">
+  Footer
+</h2>

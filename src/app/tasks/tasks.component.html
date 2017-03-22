@@ -1,17 +1,21 @@
-<button md-raised-button routerLink="/tasks/add">ADD</button>
-<div class="task-container" *ngIf="taskList">
-  <ul *ngFor="let task of taskList | async">
-    <md-card class="task-card">
-      <div class="task-checkbox">
-        <md-card-actions>
-          <button md-fab><md-icon>check</md-icon></button>
-        </md-card-actions>
-      </div>
-      <md-card-title-group class="task-card-title-group">
-        <img md-card-avatar src="{{ task.assignee.photo }}">
-        <md-card-title>{{ task.title.title }}</md-card-title>
-        <md-card-subtitle>{{ task.assignee.name }}</md-card-subtitle>
-      </md-card-title-group>
-    </md-card>
-  </ul>
+<div class="app-content">
+  <div class="add-button">
+    <button md-raised-button routerLink="/tasks/add">ADD</button>
+  </div>
+  <div class="task-container" *ngIf="taskList">
+    <ul *ngFor="let task of taskList | async">
+      <md-card class="task-card">
+        <div class="task-checkbox">
+          <md-card-actions>
+            <button md-fab><md-icon>check</md-icon></button>
+          </md-card-actions>
+        </div>
+        <md-card-title-group class="task-card-title-group">
+          <img md-card-avatar src="{{ task.assignee.photo }}">
+          <md-card-title>{{ task.title.title }}</md-card-title>
+          <md-card-subtitle>{{ task.assignee.name }}</md-card-subtitle>
+        </md-card-title-group>
+      </md-card>
+    </ul>
+  </div>
 </div>

@@ -1,0 +1,20 @@
+md-sidenav-container {
+    min-height: 600px;
+}
+
+md-sidenav {
+    width: 200px;
+    height: 100%;
+}
+
+.nav-button {
+    width: 190px;
+}
+
+.button-row {
+    margin: 20px 0px;
+}
+
+.footer-title {
+    text-align: center;
+}
