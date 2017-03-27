@@ -1,11 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { LOCALE_ID } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule,Routes } from '@angular/router';
 import { MaterialModule } from '@angular/material';
 
 import { AngularFireModule, AuthProviders, AuthMethods, FirebaseAuth } from 'angularfire2';
+import { Md2Module } from 'md2';
 
 import { UserService } from './services/user.service';
 import { PropertyService } from './property/services/property.service';
@@ -62,13 +64,15 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes),
     MaterialModule.forRoot(),
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig),
+    Md2Module.forRoot(),
   ],
   providers: [
     UserService,
     PropertyService,
     PeopleService,
-    TaskService
+    TaskService,
+    { provide: LOCALE_ID, useValue: "en-GB" }
   ],
   bootstrap: [AppComponent]
 })

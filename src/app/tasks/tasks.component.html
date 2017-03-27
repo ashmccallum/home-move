@@ -12,8 +12,9 @@
         </div>
         <md-card-title-group class="task-card-title-group">
           <img md-card-avatar src="{{ task.assignee.photo }}">
-          <md-card-title>{{ task.title.title }}</md-card-title>
+          <md-card-title>{{ task.title }}</md-card-title>
           <md-card-subtitle>{{ task.assignee.name }}</md-card-subtitle>
+          <md-card-subtitle *ngIf="task.completeBy">{{ task.completeBy | date }}</md-card-subtitle>
         </md-card-title-group>
       </md-card>
     </ul>

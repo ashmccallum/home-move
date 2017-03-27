@@ -4,6 +4,7 @@ export interface ITask {
     createdAt: number;
     assignee?: Object;
     status: Status;
+    completeBy?: string;
 }
 
 export enum Status {
@@ -19,8 +20,12 @@ export class Task implements ITask {
     createdAt: number = 0
     assignee?: Object = {name: "fake name", email: "fake@name.com", photo: "../../assets/profile.jpg", type: "solicitor"};
     status: Status = Status.toDo;
+    completeBy?: string;
     
-    constructor(title: string) {
+    constructor(title: string, completeByDate?: string) {
         this.title = title;
+        if (completeByDate) {
+           this.completeBy = completeByDate;
+        }
     }
 }

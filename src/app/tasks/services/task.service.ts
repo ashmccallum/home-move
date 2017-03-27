@@ -18,8 +18,8 @@ public tasks: FirebaseListObservable<ITask[]>;
     this.tasks = af.database.list(path);
   }
 
-  createTask(title: string): firebase.Promise<any> {
-    return this.tasks.push(new Task(title));
+  createTask(title: string, completeByDate?: string): firebase.Promise<any> {
+    return this.tasks.push(new Task(title, completeByDate));
     // TODO: add task to user object
   }
 

@@ -10,18 +10,44 @@
       </div>
       
       <!--<div class="form-group">
-        <md-select placeholder="Assignee" [(ngModel)]="task.assignee" id="assignee" required  name="assignee">
+        <md-select placeholder="Assignee" [(ngModel)]="task.assignee" id="assignee" name="assignee">
           <md-option *ngFor="let person of people" [value]="assignee">{{ person }}</md-option>
         </md-select>
       </div>-->
 
+      <div class="form-group">
+        <!--<md2-datepicker name="completeByDate"
+          id="completeByDate"
+          placeholder="Complete By"
+          [(ngModel)]="task.completeByDate"
+          required="false"
+          disabled="false"
+          openOnFocus="true"
+          [isOpen]="isOpen"
+          type="date"
+          [min]="minDate"
+          [max]="maxDate"
+          mode="auto"
+          container="inline"
+          #dateControl="ngModel">
+        </md2-datepicker>-->
+
+        <md-input-container>
+          <input md-input placeholder="Complete by" type="date" id="completeByDate" [(ngModel)]="task.completeByDate" name="completeByDate">
+        </md-input-container>
+
+      </div>
+
       <button md-raised-button type="submit" [disabled]="!taskForm.form.valid">Submit</button>
 
     </form>
+
+    <h2>"{{showFormControls(taskForm)}}"</h2>
   </div>
 
   <div [hidden]="!submitted">
     <h2>"{{ task.title }}" added!</h2>
+    <h2>"{{ task.completeByDate }}"</h2>
   </div>
 
 </div>
